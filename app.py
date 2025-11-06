@@ -1,6 +1,5 @@
 import streamlit as st
 import numpy as np
-import matplotlib.pyplot as plt
 from bs import bs_greeks
 from signals import build_iron_condor, payoff_iron_condor
 
@@ -62,13 +61,12 @@ lo = S*(1-0.08); hi = S*(1+0.08)
 grid = np.linspace(lo, hi, 200)
 payoff = payoff_iron_condor(condor, grid)
 
-fig, ax = plt.subplots()
-ax.plot(grid, payoff)
-ax.axhline(0, linewidth=0.8)
-ax.axvline(S, linewidth=0.8)
-ax.set_xlabel('Underlying Price at Expiry')
-ax.set_ylabel('P/L (points)')
-st.pyplot(fig)
+import pandas as pd  # אם אין כבר import
+df = pd.DataFrame({"Underlying": grid, "Payoff": payoff})
+df = df.set_index("Underlying")
+st.line_chart(df)  # גרף אינטראקטיבי ללא matplotlib
+st.caption("קו האיקס הוא אפס. השתמשי בסרגל הצד כדי לשנות פרמטרים.")
+
 
 st.divider()
 st.caption('To enable IBKR orders, open ibkr.py and wire a button that calls place_condor_IBKR().')
