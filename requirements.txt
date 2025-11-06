@@ -2,4 +2,3 @@ streamlit>=1.39.0
 numpy>=1.23
 pandas>=1.5
 matplotlib>=3.7
-ib-insync>=0.9.86
