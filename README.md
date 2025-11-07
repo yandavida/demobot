@@ -1,14 +1,21 @@
-# Option Bot (Streamlit Skeleton)
+# Iron Condor Streamlit Desk
 
-Educational Iron-Condor desk with Streamlit UI, BS pricing, Greeks & payoff.
+A minimal Streamlit app for exploring an options iron condor using Black–Scholes pricing and greeks.
 
-## Run locally
+## Quick start (local)
+
 ```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Deploy to Streamlit Cloud
-1) Create a **public** GitHub repo and upload all files
-2) New app → Repository: `youruser/option-bot`, Branch: `main`, Main file: `app.py`
-3) Deploy
+## Quick start (Streamlit Cloud)
+
+1. Push this repository to GitHub.
+2. In Streamlit Community Cloud choose **New app** and set the fields exactly as follows:
+   - Repository: `<user>/<repo>`
+   - Branch: `main`
+   - Main file path: `app.py`
+3. Deploy and enjoy the interactive desk.
